@@ -6,3 +6,9 @@ puts "Exercise 3"
 puts "----------"
 
 # Your code goes here ...
+@store3 = Store.find_by(id: 3)
+puts Store.count
+@store3.delete
+puts Store.count
+
+@store3.save
