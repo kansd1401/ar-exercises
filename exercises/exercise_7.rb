@@ -10,3 +10,10 @@ puts "Exercise 7"
 puts "----------"
 
 # Your code goes here ...
+
+store_name = gets.chomp
+
+store = Store.new
+store.name = store_name
+store.save
+p store.errors.full_messages

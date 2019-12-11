@@ -6,7 +6,20 @@ puts "----------"
 # Your code goes below here ...
 
 class Store < ActiveRecord::Base
+  validates :name, length: {minimum: 5}
+  validates :annual_revenue, :numericality => { :greater_than => 0 }
+  has_many :employees
 end
+
+class Employee <ActiveRecord::Base
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :hourly_rate, :inclusion => 60..200
+  validates :store, presence: true
+  belongs_to :store
+end
+
+
 
 s1 = Store.new
 s1.name = "Burnaby"
